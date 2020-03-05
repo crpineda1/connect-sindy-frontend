@@ -1,204 +1,202 @@
-  body {
-    margin: 20;
-    font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
-    background-image: url(images/field.jpg);
-    background-position: center;
-    background-size: cover;
-  }
+body {
+  margin: 20;
+  font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
+  background-image: url(images/field.jpg);
+  background-position: center;
+  background-size: cover;
+}
 
-  h1 {
-    margin: 0 0 15px;
-    font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
-    padding: 15px;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #1F90FF;
-    background: rgba(69, 113, 179, 0.3);
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
-  }
-  
-  #board {
-    display: flex;
-    position: relative;
-    width: 490px;
-    height: 420px;
-    align-items: center;
-    border-style: solid;
-    border-width: 10px;
-    color: #1f90ff;
-    margin: auto
-  }
-  
-  .column {
-    display: inline-flex;
-    flex-flow: column wrap;
-    height:420px; 
-  }
-
-  .general{
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
-
-  .turn {
-    font-size: 18px;
-    /* font-weight: bold; */
-    width: 200px;
-    background-color: #1f90ff;
-    color: #fff;
-    text-align: center;
-    padding: 8px 20px;
-    margin: auto;
-  }
-
-  .rules {
-    font-size: 18px;
-    /* font-weight: bold; */
-    width: 300px;
-    background-color: #1f90ff;
-    color: #fff;
-    text-align: center;
-    padding: 8px 20px;
-    margin: auto;
-  }
-  
-  .left {
-    border-style: solid;
-    border-left-width: 10px;
-    color: #1f90ff;
-    height: 420px;
-    width: 0px;
-  }
-  
-  .middle {
-    border-style: solid;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    color: #1f90ff;
-  }
-
-  .right {
-    border-style: solid;
-    border-right-width: 10px;
-    color: #1f90ff;
-  }
-  
-  /* Disc */
-  .disc {
-    border-style: solid;
-    border-width: 5px;
-    position: relative;
-    top: 0;
-    width: 60px;
-    height: 60px;
-    color: #1f90ff;
-    background-image: radial-gradient(white, rgba(133, 133, 252, 0.342), #1f90ff);
-  }
-  
-  /* player 1 chip */
-  #p1{
-    background-image: url(images/cow1.png);
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  /* player 2 chip */
-  #p2{
-    background-image: url(images/cow2.png);
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  /* Buttons at bottom */
-  button {
-    margin:  auto ;
-    border: none;
-    border-radius: 2px;
-    padding: 12px 18px;
-    font-size: 16px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #fff;
-    background: #2196f3 center;
-    box-shadow: 0 0 4px #999;
-    outline: none;
-    font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
-  }
-  
-  .buttons{
-    margin: auto;
-    width: 25.5%;
-    padding: 10px;
-  }
-
-  img {
-    padding: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 18%;
-    height: 30%;
-  }
-
-  /* leaderboard */
-  #players {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 50%;
-  }
-  
-  #players td, #players th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  #players tr:nth-child(even){background-color: #f2f2f2;}
-  #players tr:nth-child(odd){background-color: #80bfff;}
-  #players th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #1f90ff;
-    color: white;
-  }
-  
-  /* p1 disk hover on each disc */
-  div[data-h='1']:hover {
-    background-image: url(images/cow1.png);
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  /* p2 disk hover on each disc */
-  div[data-h='2']:hover {
-    background-image: url(images/cow2.png);
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
- footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+h1 {
+  margin: 0 0 15px;
+  font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
+  padding: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
   background-color: #1F90FF;
   background: rgba(69, 113, 179, 0.3);
   color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#board {
+  display: flex;
+  position: relative;
+  width: 490px;
+  height: 420px;
+  align-items: center;
+  border-style: solid;
+  border-width: 10px;
+  color: #1f90ff;
+  margin: auto
+}
+
+.column {
+  display: inline-flex;
+  flex-flow: column wrap;
+  height:420px; 
+}
+
+.general{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.turn {
+  font-size: 18px;
+  width: 200px;
+  background-color: #1f90ff;
+  color: #fff;
   text-align: center;
-  padding: 5px;
+  padding: 8px 20px;
+  margin: auto;
+}
+
+.rules {
+  font-size: 18px;
+  width: 300px;
+  background-color: #1f90ff;
+  color: #fff;
+  text-align: center;
+  padding: 8px 20px;
+  margin: auto;
+}
+
+.left {
+  border-style: solid;
+  border-left-width: 10px;
+  color: #1f90ff;
+  height: 420px;
+  width: 0px;
+}
+
+.middle {
+  border-style: solid;
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  color: #1f90ff;
+}
+
+.right {
+  border-style: solid;
+  border-right-width: 10px;
+  color: #1f90ff;
+}
+
+/* Disc */
+.disc {
+  border-style: solid;
+  border-width: 5px;
+  position: relative;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  color: #1f90ff;
+  background-image: radial-gradient(white, rgba(133, 133, 252, 0.342), #1f90ff);
+}
+
+/* player 1 chip */
+#p1{
+  background-image: url(images/cow1.png);
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* player 2 chip */
+#p2{
+  background-image: url(images/cow2.png);
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Buttons at bottom */
+button {
+  margin:  auto ;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #fff;
+  background: #2196f3 center;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+  font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
+}
+
+.buttons{
+  margin: auto;
+  width: 25.5%;
+  padding: 10px;
+}
+
+img {
+  padding: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 18%;
+  height: 30%;
+}
+
+/* leaderboard */
+#players {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#players td, #players th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#players tr:nth-child(even){background-color: #f2f2f2;}
+#players tr:nth-child(odd){background-color: #80bfff;}
+#players th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1f90ff;
+  color: white;
+}
+
+/* p1 disk hover on each disc */
+div[data-h='1']:hover {
+  background-image: url(images/cow1.png);
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* p2 disk hover on each disc */
+div[data-h='2']:hover {
+  background-image: url(images/cow2.png);
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: #1F90FF;
+background: rgba(69, 113, 179, 0.3);
+color: white;
+text-align: center;
+padding: 5px;
 }
