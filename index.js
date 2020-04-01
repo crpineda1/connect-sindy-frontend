@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         p2Image.remove()
     })
     
-    // make the chip drown down the column 
+    // make the chip fall down the column 
     function chipAppear(turn,current,row,column){
         console.log(turn)
         console.log("row:",row)
@@ -151,13 +151,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let column = e.target.dataset.x
         let row = 1
         let current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-        // ***PLAYER 2 GAME LOGIC***
+        // ***PLAYER 1 GAME LOGIC***
         if (turn === "Player 1") {
             if (current.id) {
                 alert("Can't you see??? Column full! ")
             } else {
                 chipAppear(turn,current,row,column)
-                row = row + 1
+                row++
                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)         
                  if (current.id){ 
                     //take disc above this and add id
@@ -165,7 +165,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 } else {
                     //keep going
                     chipAppear(turn,current,row,column)
-                    row = row + 1
+                    row++
                     current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                   
                     if (current.id){ 
                         //take disc above this and add id
@@ -173,7 +173,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     } else {
                         //keep going
                         chipAppear(turn,current,row,column)
-                        row = row + 1
+                        row++
                         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                          
                         if (current.id){ 
                             //take disc above this and add id
@@ -181,7 +181,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         } else {
                             //keep going
                             chipAppear(turn,current,row,column)
-                             row = row + 1
+                             row++
                             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                                      
                             if (current.id){ 
                                 //take disc above this and add id
@@ -189,7 +189,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             } else {
                                 //keep going
                                 chipAppear(turn,current,row,column)
-                              row = row + 1
+                              row++
                                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                
                                 if (current.id){ 
                                     //take disc above this and add id
@@ -210,7 +210,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 alert("Can't you see??? Column full! ")
             } else {
                 chipAppear(turn,current,row,column)
-                row = row + 1
+                row++
                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)    
                 if (current.id){ 
                     //take disc above this and add id
@@ -218,7 +218,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 } else {
                     //keep going
                     chipAppear(turn,current,row,column)
-                    row = row + 1
+                    row++
                     current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                     if (current.id){ 
                         //take disc above this and add id
@@ -226,7 +226,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     } else {
                         //keep going
                         chipAppear(turn,current,row,column)
-                        row = row + 1
+                        row++
                         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                         if (current.id){ 
                             //take disc above this and add id
@@ -234,7 +234,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         } else {
                             //keep going
                             chipAppear(turn,current,row,column)
-                            row = row + 1
+                            row++
                             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                             if (current.id){ 
                                 //take disc above this and add id
@@ -242,7 +242,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             } else {
                                 //keep going
                                 chipAppear(turn,current,row,column)
-                                row = row + 1
+                                row++
                                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                                 if (current.id){ 
                                     //take disc above this and add id
