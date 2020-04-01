@@ -151,15 +151,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let column = e.target.dataset.x
         let row = 1
         let current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+
         // ***PLAYER 1 GAME LOGIC***
         if (turn === "Player 1") {
-            if (current.id) {
-                alert("Can't you see??? Column full! ")
+
+
+            if (current.id){
+                alert("Can't you see??? Column full!")
             } else {
+
                 chipAppear(turn,current,row,column)
                 row++
-                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)         
-                 if (current.id){ 
+                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+                
+                
+                if (current.id){ 
                     //take disc above this and add id
                     current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
                 } else {
@@ -207,7 +213,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // ***PLAYER 2 GAME LOGIC***
         } else { 
             if (current.id) {
-                alert("Can't you see??? Column full! ")
+                alert("Can't you see??? Column full!")
             } else {
                 chipAppear(turn,current,row,column)
                 row++
