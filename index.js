@@ -157,6 +157,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else {
             gamePlay(turn,current,row,column)
         }
+        
     }
 
 
@@ -171,52 +172,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (current.id){
             alert("Can't you see??? Column full!")
         } else {
-            chipAppear(turn,current,row,column)
-            row++
-            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-            if (current.id){
-                //take disc above this and add id
-                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
-            } else {
-                //keep going
-                chipAppear(turn,current,row,column)
-                row++
-                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                if (current.id){
-                    //take disc above this and add id
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
-                } else {
-                    //keep going
-                    chipAppear(turn,current,row,column)
-                    row++
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                    if (current.id){
-                        //take disc above this and add id
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
-                    } else {
-                        //keep going
-                        chipAppear(turn,current,row,column)
-                        row++
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                        if (current.id){
-                            //take disc above this and add id
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
-                        } else {
-                            //keep going
-                            chipAppear(turn,current,row,column)
-                            row++
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                            if (current.id){
-                                //take disc above this and add id
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
-                            } else {
-                                //keep going
-                                chipAppear(turn,current,row,column)
-                            }
-                        }
-                    }
-                }
-            }
+            gamePlay(turn,current,row,column)
             checkWin(current, turn)
             checkTie()
             
