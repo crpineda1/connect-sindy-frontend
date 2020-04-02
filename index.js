@@ -146,6 +146,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    function gamePlay(turn,current,row,column ){
+       // current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+        while (!current.id){
+            chipAppear(turn,current,row,column)
+            row++
+            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+        }
+        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`) 
+    }
+
+
+
     board.addEventListener("click", e => {     
         chipSound.play()
         let column = e.target.dataset.x
