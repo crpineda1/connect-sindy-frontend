@@ -147,14 +147,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    function gamePlay(turn,current,row,column ){
-       // current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-        while (!current.id){
-            chipAppear(turn,current,row,column)
-            row++
-            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+    function gamePlay(turn,current,row,column){
+        chipAppear(turn,current,row,column)
+        row++
+        current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+        if (current.id){
+            //take disc above this and add id
+            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
+        } else {
+            gamePlay(turn,current,row,column)
         }
-        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`) 
     }
 
 
@@ -169,12 +171,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (current.id){
             alert("Can't you see??? Column full!")
         } else {
-
             chipAppear(turn,current,row,column)
             row++
             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-            
-            
             if (current.id){
                 //take disc above this and add id
                 current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
