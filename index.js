@@ -106,14 +106,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
         p2Image.remove()
     })
     
-    // make the chip fall down the column 
+    // chip fall animation
     function chipAppear(turn,current,row,column){
-        console.log(turn)
-        console.log("row:",row)
+        // console.log(turn)
+        // console.log("row:",row)
         
         let next = document.querySelector(`[data-x='${column}'][data-y='${row+1}']`)
-        console.log(next)
-        console.log(next.id)
+        // console.log(next)
+        // console.log(next.id)
 
         let appearDelay = 50
         let disappearDelay = appearDelay + 10
@@ -146,6 +146,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    // 
+    function gamePlay(turn,current,row,column){
+        chipAppear(turn,current,row,column)
+        row++
+        current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+        if (current.id){ 
+            //take disc above this and add id
+            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
+        } else {
+            gamePlay(turn,current,row,column)
+        }
+     }
+
     board.addEventListener("click", e => {     
         chipSound.play()
         let column = e.target.dataset.x
@@ -156,41 +169,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (current.id) {
                 alert("Can't you see??? Column full! ")
             } else {
-                chipAppear(turn,current,row,column)
-                row++
-                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)         
-                 if (current.id){ 
+                gamePlay(turn,current,row,column)
+                if (current.id){ 
                     //take disc above this and add id
                     current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
                 } else {
                     //keep going
-                    chipAppear(turn,current,row,column)
-                    row++
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                   
+                    gamePlay(turn,current,row,column)
                     if (current.id){ 
                         //take disc above this and add id
                         current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)    
                     } else {
                         //keep going
-                        chipAppear(turn,current,row,column)
-                        row++
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                          
+                        gamePlay(turn,current,row,column)
                         if (current.id){ 
                             //take disc above this and add id
                             current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
                         } else {
                             //keep going
-                            chipAppear(turn,current,row,column)
-                             row++
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                                      
+                            gamePlay(turn,current,row,column)
                             if (current.id){ 
                                 //take disc above this and add id
                                 current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)            
                             } else {
                                 //keep going
-                                chipAppear(turn,current,row,column)
-                              row++
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                
+                                gamePlay(turn,current,row,column)
                                 if (current.id){ 
                                     //take disc above this and add id
                                     current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                
