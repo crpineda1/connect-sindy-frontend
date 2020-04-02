@@ -89,6 +89,7 @@ function sound(src) {
 // *** DOM content loader ***
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
+
     // LOGIN PAGE *** comment out for game testing ***
     body.replaceChild(player1Form, gameBoard)
     let turn = "Player 1"
@@ -164,128 +165,71 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let row = 1
         let current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
 
-        // ***PLAYER 1 GAME LOGIC***
-        if (turn === "Player 1") {
+        // ***GAME LOGIC***
+        if (current.id){
+            alert("Can't you see??? Column full!")
+        } else {
 
-
+            chipAppear(turn,current,row,column)
+            row++
+            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
+            
+            
             if (current.id){
-                alert("Can't you see??? Column full!")
+                //take disc above this and add id
+                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
             } else {
-
+                //keep going
                 chipAppear(turn,current,row,column)
                 row++
                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                
-                
-                if (current.id){ 
+                if (current.id){
                     //take disc above this and add id
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
-                } else {
-                    //keep going
-                    chipAppear(turn,current,row,column)
-                    row++
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                   
-                    if (current.id){ 
-                        //take disc above this and add id
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)    
-                    } else {
-                        //keep going
-                        chipAppear(turn,current,row,column)
-                        row++
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                          
-                        if (current.id){ 
-                            //take disc above this and add id
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
-                        } else {
-                            //keep going
-                            chipAppear(turn,current,row,column)
-                             row++
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                                      
-                            if (current.id){ 
-                                //take disc above this and add id
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)            
-                            } else {
-                                //keep going
-                                chipAppear(turn,current,row,column)
-                              row++
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)                
-                                if (current.id){ 
-                                    //take disc above this and add id
-                                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                
-                                } else {
-                                    //keep going
-                                    chipAppear(turn,current,row,column)
-                                }
-                            } 
-                        }
-                    }
-                }
-            } 
-            
-        // ***PLAYER 2 GAME LOGIC***
-        } else { 
-            if (current.id) {
-                alert("Can't you see??? Column full!")
-            } else {
-                chipAppear(turn,current,row,column)
-                row++
-                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)    
-                if (current.id){ 
-                    //take disc above this and add id
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
+                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
                 } else {
                     //keep going
                     chipAppear(turn,current,row,column)
                     row++
                     current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                    if (current.id){ 
+                    if (current.id){
                         //take disc above this and add id
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
+                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
                     } else {
                         //keep going
                         chipAppear(turn,current,row,column)
                         row++
                         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                        if (current.id){ 
+                        if (current.id){
                             //take disc above this and add id
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                         
+                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
                         } else {
                             //keep going
                             chipAppear(turn,current,row,column)
                             row++
                             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                            if (current.id){ 
+                            if (current.id){
                                 //take disc above this and add id
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                           
+                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)
                             } else {
                                 //keep going
                                 chipAppear(turn,current,row,column)
-                                row++
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                                if (current.id){ 
-                                    //take disc above this and add id
-                                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                        
-                                } else {
-                                    //keep going
-                                    chipAppear(turn,current,row,column)
-                                }
-                            } 
+                            }
                         }
                     }
                 }
-            }    
-        }
-        checkWin(current, turn)
-        checkTie()
-
-        if (turn === "Player 1") {
-            turn = "Player 2"
-            turnDiv.textContent = `Current Turn: ${player2}`  
-            hoverChip(2)
-        } else {
-            turn = "Player 1"
-            turnDiv.textContent = `Current Turn: ${player1}`
-            hoverChip(1)
+            }
+            checkWin(current, turn)
+            checkTie()
+            
+            if (turn === "Player 1") {
+                turn = "Player 2"
+                turnDiv.textContent = `Current Turn: ${player2}`  
+                hoverChip(2)
+            } else {
+                turn = "Player 1"
+                turnDiv.textContent = `Current Turn: ${player1}`
+                hoverChip(1)
+            }
         }
     }) 
     // end of board event listener
