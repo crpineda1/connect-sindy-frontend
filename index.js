@@ -158,6 +158,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
             gamePlay(turn,current,row,column)
         }
         
+        checkWin(current, turn)
+        checkTie()
+        
+        if (turn === "Player 1") {
+            turn = "Player 2"
+            turnDiv.textContent = `Current Turn: ${player2}`  
+            hoverChip(2)
+        } else {
+            turn = "Player 1"
+            turnDiv.textContent = `Current Turn: ${player1}`
+            hoverChip(1)
+        }
+
     }
 
 
@@ -173,18 +186,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             alert("Can't you see??? Column full!")
         } else {
             gamePlay(turn,current,row,column)
-            checkWin(current, turn)
-            checkTie()
-            
-            if (turn === "Player 1") {
-                turn = "Player 2"
-                turnDiv.textContent = `Current Turn: ${player2}`  
-                hoverChip(2)
-            } else {
-                turn = "Player 1"
-                turnDiv.textContent = `Current Turn: ${player1}`
-                hoverChip(1)
-            }
         }
     }) 
     // end of board event listener
