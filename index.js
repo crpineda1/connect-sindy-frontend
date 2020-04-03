@@ -164,60 +164,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let column = e.target.dataset.x
         let row = 1
         let current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-        // ***PLAYER 1 GAME LOGIC***
-        if (turn === "Player 1") {
-            if (current.id) {
-                alert("Can't you see??? Column full! ")
+        // ***GAME LOGIC***
+        if (current.id) {
+            alert("Can't you see??? Column full! ")
+        } else {
+            chipAppear(turn,current,row,column)
+            row++
+            current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)    
+            if (current.id){ 
+                //take disc above this and add id
+                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
             } else {
-                gamePlay(turn,current,row,column)
-                if (current.id){ 
-                    //take disc above this and add id
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
-                } else {
-                    //keep going
-                    gamePlay(turn,current,row,column)
-                    if (current.id){ 
-                        //take disc above this and add id
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)    
-                    } else {
-                        //keep going
-                        gamePlay(turn,current,row,column)
-                        if (current.id){ 
-                            //take disc above this and add id
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
-                        } else {
-                            //keep going
-                            gamePlay(turn,current,row,column)
-                            if (current.id){ 
-                                //take disc above this and add id
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)            
-                            } else {
-                                //keep going
-                                gamePlay(turn,current,row,column)
-                                if (current.id){ 
-                                    //take disc above this and add id
-                                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                
-                                } else {
-                                    //keep going
-                                    chipAppear(turn,current,row,column)
-                                }
-                            } 
-                        }
-                    }
-                }
-            } 
-            
-        // ***PLAYER 2 GAME LOGIC***
-        } else { 
-            if (current.id) {
-                alert("Can't you see??? Column full! ")
-            } else {
+                //keep going
                 chipAppear(turn,current,row,column)
                 row++
-                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)    
+                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                 if (current.id){ 
                     //take disc above this and add id
-                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
+                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
                 } else {
                     //keep going
                     chipAppear(turn,current,row,column)
@@ -225,7 +189,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                     if (current.id){ 
                         //take disc above this and add id
-                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
+                        current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                         
                     } else {
                         //keep going
                         chipAppear(turn,current,row,column)
@@ -233,7 +197,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                         if (current.id){ 
                             //take disc above this and add id
-                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                         
+                            current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                           
                         } else {
                             //keep going
                             chipAppear(turn,current,row,column)
@@ -241,37 +205,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
                             if (current.id){ 
                                 //take disc above this and add id
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                           
+                                current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                        
                             } else {
                                 //keep going
                                 chipAppear(turn,current,row,column)
-                                row++
-                                current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                                if (current.id){ 
-                                    //take disc above this and add id
-                                    current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                        
-                                } else {
-                                    //keep going
-                                    chipAppear(turn,current,row,column)
-                                }
-                            } 
-                        }
+                            }
+                        } 
                     }
                 }
-            }    
-        }
-        checkWin(current, turn)
-        checkTie()
-
-        if (turn === "Player 1") {
-            turn = "Player 2"
-            turnDiv.textContent = `Current Turn: ${player2}`  
-            hoverChip(2)
-        } else {
-            turn = "Player 1"
-            turnDiv.textContent = `Current Turn: ${player1}`
-            hoverChip(1)
-        }
+            }
+            checkWin(current, turn)
+            checkTie()
+    
+            if (turn === "Player 1") {
+                turn = "Player 2"
+                turnDiv.textContent = `Current Turn: ${player2}`  
+                hoverChip(2)
+            } else {
+                turn = "Player 1"
+                turnDiv.textContent = `Current Turn: ${player1}`
+                hoverChip(1)
+            }
+        }    
+        
     }) 
     // end of board event listener
 
