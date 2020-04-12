@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
          e.preventDefault()
          body.replaceChild(player2Form, player1Form)
         player1 = e.target.name.value
-        body.replaceChild(p2Image,p1Image)
+        body.replaceChild(p2Image, p1Image)
      })
      player2Form.addEventListener("submit", e => {
         e.preventDefault()
@@ -234,6 +234,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     newGameButton.addEventListener('click', e => {
         console.log("new game button pressed")
         window.location.reload()
+        window.scrollTo(0,0)
     })
     function checkWin (current, turn) {
         let countV = 1 // BC
@@ -363,21 +364,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 } else { null }
             } else { null }
         } else { null }
-        console.log("countV:",countV)
-        console.log("countH:",countH)
-        console.log("countD:",countD)
-        console.log("countU:",countU)
+        console.log("countV:", countV)
+        console.log("countH:", countH)
+        console.log("countD:", countD)
+        console.log("countU:", countU)
         
         if (countV >= 4 || countH >= 4 || countD >= 4 || countU >=4) {
             mooSound.play()
             if (turn == "Player 1") {
                 // mooSound.play()
                 alert(`${player1} wins!!`)
-                logGame(player1,player2,player1)
+                logGame(player1, player2, player1)
             } else {
                 // mooSound.play()
                 alert(`${player2} wins!!`)
-                logGame(player1,player2,player2)
+                logGame(player1, player2, player2)
             }   
         }  
     }
@@ -453,12 +454,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             break;
     }
 }
-    leaderboardButton.addEventListener("click", e=> {
+    leaderboardButton.addEventListener("click", e => {
        createLeaderboard()    
     })
     
     //rules
-    rulesButton.addEventListener("click", e=> {
+    rulesButton.addEventListener("click", e => {
         let leaderboard = document.getElementById('leaderboard')
         let currentImage = document.getElementsByTagName('img')[0]
                
@@ -473,11 +474,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             break;
         case player1Form.parentNode:
             body.replaceChild(rules, player1Form)
-            body.replaceChild(rulesImage,currentImage)
+            body.replaceChild(rulesImage, currentImage)
             break;
         case player2Form.parentNode:
             body.replaceChild(rules, player2Form)
-            body.replaceChild(rulesImage,currentImage)
+            body.replaceChild(rulesImage, currentImage)
             break;
         default:
             break;

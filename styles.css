@@ -132,9 +132,13 @@ button {
   font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
   border-radius: 8px;
   font-variant: small-caps;
-
 }
 
+button:hover {
+  background-color: rgb(93, 137, 240);
+  color: white;
+}
+      
 .buttons {
   text-align: center;
   padding: 10px;
@@ -224,26 +228,12 @@ padding: 5px;
 	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 	background-color:#f6f6f6;
 }
+
 .myButton:active {
 	position:relative;
 	top:1px;
 }
-
-#newGame:hover {
-  background-color: rgb(93, 137, 240);
-  color: white;
-}
-        
-#rules:hover {
-  background-color: rgb(93, 137, 240);
-  color: white;
-}
-        
-#leaderboard:hover {
-  background-color: rgb(93, 137, 240);
-  color: white;
-}
-        
+  
 input[type=text] {
   width: 100%;
   padding: 5px 15px;
