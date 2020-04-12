@@ -118,7 +118,7 @@ h1 {
 
 /* Buttons at bottom */
 button {
-  margin:  auto ;
+  margin:  auto;
   border: none;
   border-radius: 2px;
   padding: 12px 18px;
@@ -132,9 +132,8 @@ button {
   font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
 }
 
-.buttons{
-  margin: auto;
-  width: 25.5%;
+.buttons {
+  text-align: center;
   padding: 10px;
 }
 
