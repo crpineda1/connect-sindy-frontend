@@ -97,7 +97,7 @@ h1 {
 }
 
 /* player 1 chip */
-#p1{
+#p1 {
   background-image: url(images/cow1.png);
   width: 60px;
   height: 60px;
@@ -107,7 +107,7 @@ h1 {
 }
 
 /* player 2 chip */
-#p2{
+#p2 {
   background-image: url(images/cow2.png);
   width: 60px;
   height: 60px;
@@ -123,13 +123,16 @@ button {
   border-radius: 2px;
   padding: 12px 18px;
   font-size: 16px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   cursor: pointer;
   color: #fff;
   background: #2196f3 center;
   box-shadow: 0 0 4px #999;
   outline: none;
   font-family: "Marker Felt", "Helvetica", "Verdana", "Roboto", sans-serif;
+  border-radius: 8px;
+  font-variant: small-caps;
+
 }
 
 .buttons {
@@ -198,4 +201,60 @@ background: rgba(69, 113, 179, 0.3);
 color: white;
 text-align: center;
 padding: 5px;
+}
+
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 6px 12px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#newGame:hover {
+  background-color: rgb(93, 137, 240);
+  color: white;
+}
+        
+#rules:hover {
+  background-color: rgb(93, 137, 240);
+  color: white;
+}
+        
+#leaderboard:hover {
+  background-color: rgb(93, 137, 240);
+  color: white;
+}
+        
+input[type=text] {
+  width: 100%;
+  padding: 5px 15px;
+  margin: 6px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.loginImages {
+  height: auto;
+  width: auto;
 }

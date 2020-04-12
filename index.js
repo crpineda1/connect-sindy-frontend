@@ -13,7 +13,7 @@ Player 1 Name:
 <input type="text" name="name">
 <br>
 <br>
-<input type="submit" value="Submit">
+<input class="myButton" type="submit" value="Submit">
 </form>
 <br>
 <br>
@@ -41,7 +41,7 @@ Player 2 Name:
 <input type="text" name="name">
 <br>
 <br>
-<input type="submit" value="Start Game">
+<input class="myButton" type="submit" value="Start Game">
 </form>
 <br>
 <br>
@@ -56,7 +56,6 @@ rules.innerHTML = `
 <div class="rules">
 To play, click on a column on the game board to place your Sindy chip. To win, connect 4 of your chips vertically, horizontally, or diagonally. The game will end in a tie if neither player is able to connect 4 chips.
 </div>
-<br>
 `
 
 let leaderboard = document.createElement('div')
@@ -73,18 +72,18 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function() {
       this.sound.play();
     }
-    // this.stop = function(){
+    // this.stop = function() {
     //   this.sound.pause();
     // }
   }
 
    // sounds to be used
-  let chipSound = new sound("sounds/chip.m4a")
-  let mooSound = new sound("sounds/Moo2.m4a")
-  let loserSound = new sound("sounds/loser.m4a")
+let chipSound = new sound("sounds/chip.m4a");
+let mooSound = new sound("sounds/Moo2.m4a");
+let loserSound = new sound("sounds/loser.m4a");
 
 // *** DOM content loader ***
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -99,7 +98,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         player1 = e.target.name.value
         body.replaceChild(p2Image,p1Image)
      })
-     player2Form.addEventListener("submit", e=> {
+     player2Form.addEventListener("submit", e => {
         e.preventDefault()
         body.replaceChild(gameBoard, player2Form)
         player2 = e.target.name.value
@@ -108,7 +107,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
     
     // chip fall animation
-    function chipAppear(turn,current,row,column){
+    function chipAppear(turn, current, row, column) {
         // console.log(turn)
         // console.log("row:",row)
         
@@ -120,43 +119,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let disappearDelay = appearDelay + 10
         let rowDelay = row - 1
         
-        if (next.id || row >= 6){
+        if (next.id || row >= 6) {
             console.log("stopped")
 
-            if (turn === "Player 1"){
-                setTimeout(function (){
+            if (turn === "Player 1") {
+                setTimeout(function () {
                 current.id = "p1";
-                console.log("chip appear")},(appearDelay*rowDelay))
+                console.log("chip appear")}, (appearDelay*rowDelay))
             } else {
-                setTimeout(function (){
+                setTimeout(function () {
                     current.id = "p2";
-                    console.log("chip appear")},(appearDelay*rowDelay))
+                    console.log("chip appear")}, (appearDelay*rowDelay))
             }
         } else {
-            if (turn === "Player 1"){
-                setTimeout(function (){
+            if (turn === "Player 1") {
+                setTimeout(function () {
                 current.id = "p1";
-                console.log("chip appear")},(appearDelay*rowDelay))
+                console.log("chip appear")}, (appearDelay*rowDelay))
             } else {
-                setTimeout(function (){
+                setTimeout(function () {
                     current.id = "p2";
-                    console.log("chip appear")},(appearDelay*rowDelay))
+                    console.log("chip appear")}, (appearDelay*rowDelay))
             }
-                setTimeout(function (){
-                current.id = "";console.log("chip disappear:",rowDelay)},(disappearDelay*rowDelay))
+                setTimeout(function () {
+                current.id = "";console.log("chip disappear:",rowDelay)}, (disappearDelay*rowDelay))
         }
     }
 
-    // 
-    function gamePlay(turn,current,row,column){
-        chipAppear(turn,current,row,column)
+    function gamePlay(turn, current, row, column) {
+        chipAppear(turn, current, row, column)
         row++
         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-        if (current.id){ 
+        if (current.id) { 
             //take disc above this and add id
             current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
         } else {
-            gamePlay(turn,current,row,column)
+            gamePlay(turn, current, row, column)
         }
      }
 
@@ -169,47 +167,47 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (current.id) {
             alert("Can't you see??? Column full! ")
         } else {
-            chipAppear(turn,current,row,column)
+            chipAppear(turn, current, row, column)
             row++
             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)    
-            if (current.id){ 
+            if (current.id) { 
                 //take disc above this and add id
                 current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)  
             } else {
                 //keep going
-                chipAppear(turn,current,row,column)
+                chipAppear(turn, current, row, column)
                 row++
                 current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                if (current.id){ 
+                if (current.id) { 
                     //take disc above this and add id
                     current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)      
                 } else {
                     //keep going
-                    chipAppear(turn,current,row,column)
+                    chipAppear(turn, current, row, column)
                     row++
                     current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                    if (current.id){ 
+                    if (current.id) { 
                         //take disc above this and add id
                         current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                         
                     } else {
                         //keep going
-                        chipAppear(turn,current,row,column)
+                        chipAppear(turn, current, row, column)
                         row++
                         current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                        if (current.id){ 
+                        if (current.id) { 
                             //take disc above this and add id
                             current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                           
                         } else {
                             //keep going
-                            chipAppear(turn,current,row,column)
+                            chipAppear(turn, current, row, column)
                             row++
                             current = document.querySelector(`[data-x='${column}'][data-y='${row}']`)
-                            if (current.id){ 
+                            if (current.id) { 
                                 //take disc above this and add id
                                 current = document.querySelector(`[data-x='${column}'][data-y='${row-1}']`)                        
                             } else {
                                 //keep going
-                                chipAppear(turn,current,row,column)
+                                chipAppear(turn, current, row, column)
                             }
                         } 
                     }
@@ -370,7 +368,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log("countD:",countD)
         console.log("countU:",countU)
         
-        if (countV >=4 || countH >=4 || countD >=4 || countU >=4) {
+        if (countV >= 4 || countH >= 4 || countD >= 4 || countU >=4) {
             mooSound.play()
             if (turn == "Player 1") {
                 // mooSound.play()
@@ -392,7 +390,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (allChips === 41) {
         loserSound.play()
         alert("You both suck... Try again!")
-        logGame(player1,player2,"TIE")
+        logGame(player1, player2,"TIE")
         createLeaderboard()
     }   
  }
@@ -459,7 +457,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
        createLeaderboard()    
     })
     
-    
     //rules
     rulesButton.addEventListener("click", e=> {
         let leaderboard = document.getElementById('leaderboard')
@@ -484,10 +481,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             break;
         default:
             break;
-    }
+        }
     })
 
-    function logGame(player1,player2,winner) {
+    function logGame(player1, player2, winner) {
         fetch(URL,{
             method: "POST",
             headers: {
